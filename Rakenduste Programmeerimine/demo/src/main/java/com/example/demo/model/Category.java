@@ -23,6 +23,7 @@ public class Category {
     private String name;
     private CategoryType category;
 }
+
 enum CategoryType {
     PREMIUM, DELUXE, BASIC
 }

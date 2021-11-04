@@ -1,37 +1,46 @@
-import { Link } from "react-router-dom"
-import ItemList from "../components/ItemList"
-import { useEffect, useState } from 'react';
+import "./Home.css"
+import ItemList from '../components/ItemList';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-function Home(){   
-    const [isLoading, setIsLoading] = useState(true);
-    const [loadedItems, setLoadedItems] = useState([]);
+function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedItems, setLoadedItems] = useState([]);
+  
+  useEffect(()=>{
+    fetch('http://localhost:8080/items').then(res => {
+      return res.json();
+    }).then(data =>{
+      console.log(data);
+      setIsLoading(false);
+      setLoadedItems(data);
+    });
+  },[])
 
-    useEffect(()=>{
-            fetch("http://localhost:80/items").then(res => {
-            res.json();
-        }).then(data => {
-            console.log(data);
-            setIsLoading(false);
-            //setLoadedItems(data);
-          });
-        },[])
+  if (isLoading) {
+    return (<div>Laeb...</div>); 
+  }
 
-    if (isLoading){
-        return (<div>Laeb...</div>)
-    }
-
-    return(
-        <div>
-            Koduleht
+  return (
+    <div>
+      
+      <ItemList items={loadedItems} />
+      
+      <div className="footer">
+            <div className="line">
+                <hr/>
+            </div>
+            <p>Uue eseme lisamine:</p>
             <Link to="add-item">
-                <button> Lisa Uus Ese</button>
+                <button>Lisa uus ese</button>
             </Link>
+            <p>Uue kategooria lisamine:</p>
             <Link to="add-category">
-                <button> Lisa Uus Kategooria</button>
+                <button>Lisa uus kategooria</button>
             </Link>
-            <ItemList items={loadedItems}/>
-       </div>
-    )
+        </div>
+    </div>
+  )
 }
 
 export default Home;

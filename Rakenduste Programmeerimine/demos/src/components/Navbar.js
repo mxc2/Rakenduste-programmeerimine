@@ -1,14 +1,30 @@
-import "./Navbar.css"
-import { Link } from "react-router-dom"
+import './Navbar.css';
+import { Link } from 'react-router-dom';
+import History from "../components/History";
 
-function Navbar(){
-    return(
-        <div className="navbar">
-            <Link to="/cart">
-            <img className="cart" src="shopping-cart.svg" alt="Pooping"/>
-            </Link>
-        </div>
-    );
+function historyPush(){
+  History.push("/");
 }
+
+function Navbar() {
+  return(
+    <div>
+      <div className="header">
+        <h1 className="logo" onClick={historyPush}>Mälestused.ee</h1>
+          <div className="header-buttons">
+            <Link to="cart">
+              <button className="button" id="delete-product-btn">CART</button>
+            </Link>
+          </div>
+        </div>
+
+          <div className="line">
+            <hr/>
+          </div>    
+      </div>
+  );
+}
+
+// alumine tehke ise
 
 export default Navbar;

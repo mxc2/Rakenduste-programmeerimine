@@ -1,21 +1,23 @@
-import AddItemForm from "../components/AddItemForm";
+import AddItemForm from '../components/AddItemForm'
 
-function Additem(){   
-    function itemSubmitHandler(item){
-        fetch("http://localhost:80/items", {
-            method: "POST",
-            body: JSON.stringify(item),
-            headers: {"Content-Type" : "application/json"}
-        });
-        console.log(item);
-    }
+function AddItem() {
+  function itemSubmitHandler(item) {
 
-    return(
-        <div>
-            <h1>Lisa uus ese</h1>
-            <AddItemForm onAddItem={itemSubmitHandler}></AddItemForm>
-       </div>
-    )
+    fetch('http://localhost:8080/items',{
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        'Content-Type':'application/json'
+      }
+    });
+  }
+
+  return (
+    <div className="container">
+      <h2>Lisa uus ese</h2>
+      <AddItemForm onAddItem={itemSubmitHandler}/>
+    </div>
+    );
 }
 
-export default Additem;
+export default AddItem;

@@ -1,7 +1,8 @@
 import Item from '../components/Item';
+import "./item.css"
 
 function ItemList(props) {
-  return(<div>
+  return(<div className="container-cards">
     {props.items.map(item=> (
      <Item 
       key={item.id} 

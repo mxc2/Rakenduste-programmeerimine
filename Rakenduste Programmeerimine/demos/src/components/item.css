@@ -1,0 +1,21 @@
+.container-cards{
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  
+/* Card where all the product attributes are located at product list */
+.card {
+    width: 250px;
+    height: 120px;  
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 50px;
+    padding: 25px 15px 50px;
+    font-size: 15px;
+    border: 1px solid black;
+    transition: 0.3s;
+  }
+  
