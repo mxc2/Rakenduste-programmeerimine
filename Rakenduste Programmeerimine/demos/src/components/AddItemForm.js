@@ -1,10 +1,7 @@
 import './AddItemForm.css';
 import { useRef } from 'react';
-// võtan kasutusele useRef hooki
 
 function AddItemForm(props) {
-
-
   const nameInputRef = useRef();
   const priceInputRef = useRef();
   const categoryInputRef = useRef();

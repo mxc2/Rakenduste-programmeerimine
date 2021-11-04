@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Item;
 import com.example.demo.service.ItemService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,7 @@ public class ItemController {
         return itemService.getItems();
     }
 
+    @ApiOperation("API otspunkt eseme muutmiseks, alati saata kaasa ID")
     @PostMapping("edit-item")
     public void editItem(@RequestBody Item item) {
         itemService.editItem(item);
@@ -45,12 +47,4 @@ public class ItemController {
         return itemService.getOneItem(id);
     }
 
-    // Järgmine kord:
-    // frontendis kustuta päringu valmis
-    // edit päring frontendis
-    // view one item päring frontendis
-
-    // custom exceptionite saatmine ??
-    // cache backendis ??
-    // ostukorvi lisada/eemaldada ???
 }

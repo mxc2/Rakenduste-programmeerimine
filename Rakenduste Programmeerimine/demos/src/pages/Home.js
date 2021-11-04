@@ -1,6 +1,5 @@
 import "./Home.css"
 import ItemList from '../components/ItemList';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -24,20 +23,12 @@ function Home() {
   return (
     <div>
       
-      <ItemList items={loadedItems} />
+      <ItemList isAddToCart={true} items={loadedItems} />
       
       <div className="footer">
             <div className="line">
                 <hr/>
             </div>
-            <p>Uue eseme lisamine:</p>
-            <Link to="add-item">
-                <button>Lisa uus ese</button>
-            </Link>
-            <p>Uue kategooria lisamine:</p>
-            <Link to="add-category">
-                <button>Lisa uus kategooria</button>
-            </Link>
         </div>
     </div>
   )
