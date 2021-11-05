@@ -21,7 +21,7 @@ function AddCategoryForm(props) {
           <input type="text" required ref={nameInputRef}/><br />
         </div>
         <div className="row">
-          <label>Kategooria tyyp</label>< br/>
+          <label>Kategooria tüüp</label>< br/>
           <select ref={typeInputRef}>
               <option value="BASIC">BASIC</option>
               <option value="DELUXE">DELUXE</option>
